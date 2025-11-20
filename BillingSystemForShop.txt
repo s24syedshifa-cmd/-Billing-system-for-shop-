@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class BillingSystem {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("===== SIMPLE BILLING SYSTEM =====");
+        System.out.print("Enter number of items: ");
+        int n = sc.nextInt();
+        sc.nextLine();  // Clear input buffer
+
+        String[] name = new String[n];
+        int[] qty = new int[n];
+        double[] price = new double[n];
+        double[] total = new double[n];
+
+        double finalAmount = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEnter details of item " + (i + 1));
+
+            System.out.print("Item Name: ");
+            name[i] = sc.nextLine();
+
+            System.out.print("Price: ");
+            price[i] = sc.nextDouble();
+
+            System.out.print("Quantity: ");
+            qty[i] = sc.nextInt();
+            sc.nextLine();  // Clear buffer
+
+            total[i] = price[i] * qty[i];
+            finalAmount += total[i];
+        }
+
+        // FINAL BILL
+        System.out.println("\n\n======= FINAL BILL =======");
+        System.out.println("Item\t\tPrice\tQty\tTotal");
+
+        for (int i = 0; i < n; i++) {
+            System.out.println(name[i] + "\t\t" + price[i] + "\t" + qty[i] + "\t" + total[i]);
+        }
+
+        System.out.println("-----------------------------");
+        System.out.println("Final Amount = " + finalAmount);
+        System.out.println("=============================");
+
+        sc.close();
+    }
+}
+=========OUTPUT========
+===== SIMPLE BILLING SYSTEM =====
+Enter number of items: 2
+
+Enter details of item 1
+Item Name: chips
+Price: 20
+Quantity: 1
+
+Enter details of item 2
+Item Name: washing powder 
+Price: 40
+Quantity: 2
+
+
+======= FINAL BILL =======
+Item            Price   Qty     Total
+chips           20.0    1       20.0
+washing powder          40.0    2       80.0
+-----------------------------
+Final Amount = 100.0
+=============================
